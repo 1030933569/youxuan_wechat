@@ -3,5 +3,6 @@
     "projectname": "ssyx-wechat-native",
     "setting": {
         "compileHotReLoad": true
-    }
+    },
+    "libVersion": "3.13.1"
 }

@@ -1,5 +1,5 @@
 {
-    "appid": "wx26a5c9b811b213fa",
+    "appid": "wxf103a66e025a65e4",
     "projectname": "ssyx-wechat-native",
     "compileType": "miniprogram",
     "libVersion": "3.13.1",
@@ -22,5 +22,6 @@
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "simulatorPluginLibVersion": {}
 }
