@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "number-box": "/components/number-box/number-box"
+  }
+}
+

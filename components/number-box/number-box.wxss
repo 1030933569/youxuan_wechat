@@ -1,0 +1,32 @@
+.nb {
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+  border-radius: 999rpx;
+  overflow: hidden;
+}
+
+.btn {
+  width: 64rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0;
+  border-radius: 0;
+  background: #eee;
+  color: #333;
+  font-size: 32rpx;
+}
+
+.btn[disabled] {
+  color: #aaa;
+}
+
+.input {
+  width: 88rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 28rpx;
+}
+

@@ -1,0 +1,21 @@
+.title {
+  margin-top: 120rpx;
+  font-size: 52rpx;
+  font-weight: 700;
+}
+
+.login-btn {
+  margin-top: 80rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #ff6500;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.tip {
+  margin-top: 24rpx;
+  font-size: 24rpx;
+}
+

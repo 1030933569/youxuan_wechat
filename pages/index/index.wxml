@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="pickup card" bindtap="onPickupTap">
+    <text class="label">提货点</text>
+    <text class="name">{{leaderAddressVo.takeName || '请选择提货点'}}</text>
+    <text class="arrow">></text>
+  </view>
+
+  <scroll-view scroll-x class="category-sv" show-scrollbar="false">
+    <view class="category-list">
+      <view class="category-item" wx:for="{{categoryList}}" wx:key="id">
+        <image class="category-img" src="{{item.imgUrl}}" mode="aspectFill"></image>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="section-title">热销好货</view>
+  <view class="product-list">
+    <product-item wx:for="{{hotSkuList}}" wx:key="id" item="{{item}}" bind:tap="onProductTap" bind:add="onAddToCart"></product-item>
+  </view>
+
+  <view class="bottom-actions">
+    <button class="action-btn" bindtap="gotoCart">购物车</button>
+    <button class="action-btn ghost" bindtap="gotoOrderList">我的订单</button>
+  </view>
+</view>
+

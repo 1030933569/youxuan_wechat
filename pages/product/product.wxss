@@ -1,0 +1,67 @@
+.page {
+  padding: 20rpx;
+  padding-bottom: 140rpx;
+}
+
+.swiper {
+  width: 100%;
+  height: 520rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  background: #fff;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 520rpx;
+}
+
+.info {
+  margin-top: 20rpx;
+  padding: 24rpx;
+}
+
+.name {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.row {
+  margin-top: 14rpx;
+}
+
+.price {
+  font-size: 40rpx;
+  font-weight: 800;
+}
+
+.actions {
+  position: fixed;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: 24rpx;
+  display: flex;
+  gap: 16rpx;
+}
+
+.primary {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #ff6500;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.ghost {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #fff;
+  color: #ff6500;
+  border: 2rpx solid #ff6500;
+  font-size: 30rpx;
+}
+

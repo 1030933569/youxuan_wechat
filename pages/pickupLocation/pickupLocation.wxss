@@ -1,0 +1,37 @@
+.tip {
+  margin-bottom: 16rpx;
+  font-size: 24rpx;
+}
+
+.loc {
+  padding: 18rpx;
+  margin-bottom: 20rpx;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.tag {
+  font-size: 22rpx;
+  color: #fff;
+  background: #ff6500;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+}
+
+.addr {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.dist {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+}
+
+.load {
+  text-align: center;
+  padding: 16rpx 0 32rpx;
+}
+

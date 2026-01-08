@@ -1,0 +1,38 @@
+<view class="page container">
+  <view class="card block">
+    <view class="block-title">提货点</view>
+    <view>{{leaderAddressVo.takeName || '未选择提货点'}}</view>
+    <view class="text-muted">{{leaderAddressVo.detailAddress}}</view>
+  </view>
+
+  <view class="card block">
+    <view class="block-title">提货人信息</view>
+    <input class="input" placeholder="姓名" value="{{receiverName}}" bindinput="onNameInput"></input>
+    <input class="input" placeholder="手机号" type="number" maxlength="11" value="{{receiverPhone}}" bindinput="onPhoneInput"></input>
+  </view>
+
+  <view class="card block">
+    <view class="block-title">商品</view>
+    <view wx:for="{{items}}" wx:key="skuId" class="sku">
+      <image class="thumb" src="{{item.imgUrl}}" mode="aspectFill"></image>
+      <view class="sku-content">
+        <view class="sku-name">{{item.skuName}}</view>
+        <view class="flex-between">
+          <text class="text-red">￥{{item.cartPrice}}</text>
+          <text class="text-muted">x{{item.skuNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom card">
+    <view class="flex-between">
+      <view>
+        <text class="text-muted">合计：</text>
+        <text class="text-red">￥{{totalAmount}}</text>
+      </view>
+      <button class="submit" size="mini" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onSubmit">提交订单</button>
+    </view>
+  </view>
+</view>
+

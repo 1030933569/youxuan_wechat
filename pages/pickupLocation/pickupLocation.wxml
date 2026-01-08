@@ -1,0 +1,20 @@
+<view class="page container">
+  <view class="tip text-muted">列表选择提货点（不使用地图选点）</view>
+
+  <view wx:if="{{list.length === 0}}" class="empty text-muted">暂无提货点</view>
+
+  <view wx:else>
+    <view class="loc card" wx:for="{{list}}" wx:for-item="loc" wx:for-index="idx" wx:key="id" bindtap="onSelect" data-index="{{idx}}">
+      <view class="flex-between">
+        <view class="name">{{loc.takeName}}</view>
+        <text class="tag" wx:if="{{currentLeaderId === loc.id}}">当前</text>
+      </view>
+      <view class="addr text-muted">{{loc.detailAddress}}</view>
+      <view class="dist text-muted" wx:if="{{loc.distance}}">距离约 {{loc.distance}} km</view>
+    </view>
+
+    <view class="load text-muted" wx:if="{{loading}}">加载中...</view>
+    <view class="load text-muted" wx:else>{{hasMore ? '上拉加载更多' : '没有更多了'}}</view>
+  </view>
+</view>
+

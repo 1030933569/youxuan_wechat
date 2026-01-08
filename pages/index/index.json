@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "硅谷优选",
+  "usingComponents": {
+    "product-item": "/components/product-item/product-item"
+  }
+}
+

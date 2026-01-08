@@ -1,0 +1,33 @@
+page {
+  background-color: #f8f8f8;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.container {
+  padding: 24rpx;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-red {
+  color: #ff6500;
+}
+
+.text-muted {
+  color: #888;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+}
+

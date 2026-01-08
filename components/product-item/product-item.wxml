@@ -1,0 +1,12 @@
+<view class="product card" bindtap="onTap">
+  <image class="thumb" src="{{item.imgUrl}}" mode="aspectFill"></image>
+  <view class="info">
+    <view class="title">{{item.title || item.skuName}}</view>
+    <view class="meta text-muted">已售{{item.sale || 0}} / 库存{{item.stock || 0}}</view>
+    <view class="bottom flex-between">
+      <text class="price text-red">￥{{item.price}}</text>
+      <button class="add-btn" size="mini" catchtap="onAdd">加入</button>
+    </view>
+  </view>
+</view>
+

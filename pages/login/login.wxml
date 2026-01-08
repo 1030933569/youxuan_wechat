@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="title">欢迎登录硅谷优选</view>
+  <button class="login-btn" loading="{{loading}}" disabled="{{loading}}" bindtap="onWxLogin">微信登录</button>
+  <view class="tip text-muted">登录后可选提货点、下单、自提</view>
+</view>
+

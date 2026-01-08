@@ -1,0 +1,81 @@
+.page {
+  padding-bottom: 140rpx;
+}
+
+.list {
+  padding-bottom: 20rpx;
+}
+
+.item {
+  margin: 20rpx;
+  padding: 18rpx;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+
+.ck {
+  transform: scale(0.9);
+}
+
+.thumb {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 12rpx;
+  background: #f2f2f2;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.name {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.price {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.del {
+  height: 56rpx;
+  line-height: 56rpx;
+  padding: 0 16rpx;
+  border-radius: 28rpx;
+  background: #eee;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.bottom {
+  position: fixed;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: 24rpx;
+  padding: 18rpx 16rpx;
+}
+
+.all {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.all-text {
+  font-size: 24rpx;
+}
+
+.checkout {
+  height: 64rpx;
+  line-height: 64rpx;
+  padding: 0 22rpx;
+  border-radius: 32rpx;
+  background: #ff6500;
+  color: #fff;
+  font-size: 26rpx;
+}
+

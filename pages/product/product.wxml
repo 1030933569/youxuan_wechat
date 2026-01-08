@@ -1,0 +1,21 @@
+<view class="page">
+  <swiper class="swiper" indicator-dots="{{images.length > 1}}" circular>
+    <swiper-item wx:for="{{images}}" wx:key="imgUrl">
+      <image class="swiper-img" src="{{item.imgUrl}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="card info">
+    <view class="name">{{skuInfo.skuName}}</view>
+    <view class="row flex-between">
+      <text class="price text-red">￥{{skuInfo.price}}</text>
+      <text class="text-muted">库存：{{skuInfo.stock}} 已售：{{skuInfo.sale}}</text>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="primary" bindtap="addToCart">加入购物车</button>
+    <button class="ghost" bindtap="gotoCart">去购物车</button>
+  </view>
+</view>
+

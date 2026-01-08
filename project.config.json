@@ -1,0 +1,26 @@
+{
+    "appid": "wx26a5c9b811b213fa",
+    "projectname": "ssyx-wechat-native",
+    "compileType": "miniprogram",
+    "libVersion": "3.13.1",
+    "setting": {
+        "es6": true,
+        "minified": true,
+        "urlCheck": false,
+        "postcss": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        }
+    },
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "condition": {},
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+    }
+}

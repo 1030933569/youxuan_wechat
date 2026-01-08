@@ -1,0 +1,6 @@
+<view class="nb">
+  <button class="btn" size="mini" bindtap="onMinus" disabled="{{inputValue <= min}}">-</button>
+  <input class="input" type="number" value="{{inputValue}}" bindinput="onInput" bindblur="onBlur" />
+  <button class="btn" size="mini" bindtap="onPlus" disabled="{{inputValue >= max}}">+</button>
+</view>
+

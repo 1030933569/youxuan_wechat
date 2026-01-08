@@ -1,0 +1,37 @@
+<view class="page">
+  <view wx:if="{{cartList.length === 0}}" class="container empty">
+    <view class="text-muted">购物车为空</view>
+  </view>
+
+  <view wx:else class="list">
+    <checkbox-group bindchange="onCheckedGroupChange">
+      <view class="item card" wx:for="{{cartList}}" wx:key="skuId">
+        <checkbox class="ck" value="{{item.skuId}}" checked="{{item.isChecked === 1}}"></checkbox>
+        <image class="thumb" src="{{item.imgUrl}}" mode="aspectFill"></image>
+        <view class="content">
+          <view class="name">{{item.skuName}}</view>
+          <view class="row flex-between">
+            <text class="price text-red">￥{{item.cartPrice}}</text>
+            <number-box value="{{item.skuNum}}" min="1" max="999" data-skuid="{{item.skuId}}" bind:change="onSkuNumChange"></number-box>
+          </view>
+        </view>
+        <button class="del" size="mini" data-skuid="{{item.skuId}}" bindtap="onDelete">删</button>
+      </view>
+    </checkbox-group>
+  </view>
+
+  <view class="bottom card">
+    <view class="flex-between">
+      <view class="all" bindtap="onAllCheckboxTap">
+        <checkbox checked="{{isAllChecked}}"></checkbox>
+        <text class="all-text">全选</text>
+      </view>
+      <view class="summary">
+        <text class="text-muted">合计：</text>
+        <text class="text-red">￥{{totalAmount}}</text>
+      </view>
+      <button class="checkout" size="mini" bindtap="gotoOrderConfirm">结算({{selectedCount}})</button>
+    </view>
+  </view>
+</view>
+
