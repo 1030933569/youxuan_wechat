@@ -39,11 +39,26 @@ definePage({
 
       const localPickup = storage.getPickupLocation() || {};
       const serverLeaderAddressVo = order && order.leaderAddressVo ? order.leaderAddressVo : null;
-      const serverLeaderId = serverLeaderAddressVo && (serverLeaderAddressVo.leaderId || serverLeaderAddressVo.id);
-      const localLeaderId = localPickup && (localPickup.leaderId || localPickup.id);
-      const leaderAddressVo = serverLeaderId ? serverLeaderAddressVo : localLeaderId ? localPickup : (serverLeaderAddressVo || localPickup || {});
+      const serverLeaderId = Number(serverLeaderAddressVo && (serverLeaderAddressVo.leaderId || serverLeaderAddressVo.id));
+      const localLeaderId = Number(localPickup && (localPickup.leaderId || localPickup.id));
 
-      if (serverLeaderId) storage.setPickupLocation(serverLeaderAddressVo);
+      let leaderAddressVo = serverLeaderAddressVo || localPickup || {};
+      if (Number.isFinite(serverLeaderId) && serverLeaderId > 0) {
+        leaderAddressVo = serverLeaderAddressVo;
+        storage.setPickupLocation(serverLeaderAddressVo);
+      } else if (Number.isFinite(localLeaderId) && localLeaderId > 0) {
+        leaderAddressVo = localPickup;
+        // 兼容历史：如果本地有提货点但后端未绑定，则同步一次到后端
+        try {
+          const synced = await api.getSelectLeader({ leaderId: localLeaderId });
+          if (synced) {
+            leaderAddressVo = synced;
+            storage.setPickupLocation(synced);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
       this.setData({
         orderNo: order.orderNo || '',
         leaderAddressVo,
@@ -67,8 +82,8 @@ definePage({
     if (this.data.submitting) return;
 
     const leaderAddressVo = this.data.leaderAddressVo || {};
-    const leaderId = leaderAddressVo.leaderId || leaderAddressVo.id;
-    if (!leaderId) {
+    const leaderId = Number(leaderAddressVo.leaderId || leaderAddressVo.id);
+    if (!Number.isFinite(leaderId) || leaderId <= 0) {
       wx.showToast({ title: '请先选择提货点', icon: 'none' });
       wx.navigateTo({ url: '/pages/pickupLocation/pickupLocation' });
       return;
@@ -87,6 +102,7 @@ definePage({
 
     this.setData({ submitting: true });
     try {
+      await api.getSelectLeader({ leaderId });
       await api.postSubmitOrder({
         couponId: 0,
         leaderId,
