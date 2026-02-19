@@ -1,6 +1,7 @@
 const api = require('../../utils/api');
+const { definePage } = require('../../utils/mp-guard');
 
-Page({
+definePage({
   data: {
     skuId: 0,
     skuInfo: {},
@@ -39,7 +40,7 @@ Page({
   },
 
   gotoCart() {
-    wx.navigateTo({ url: '/pages/cart/cart' });
+    wx.switchTab({ url: '/pages/cart/cart' });
   }
 });
 

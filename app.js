@@ -1,6 +1,7 @@
 const storage = require('./utils/storage');
+const { defineApp } = require('./utils/mp-guard');
 
-App({
+defineApp({
   globalData: {
     token: '',
     userInfo: null,

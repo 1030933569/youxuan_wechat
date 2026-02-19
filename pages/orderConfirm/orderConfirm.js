@@ -1,5 +1,6 @@
 const api = require('../../utils/api');
 const storage = require('../../utils/storage');
+const { definePage } = require('../../utils/mp-guard');
 
 function flattenCheckedItems(carInfoVoList) {
   const items = [];
@@ -11,7 +12,7 @@ function flattenCheckedItems(carInfoVoList) {
   return items;
 }
 
-Page({
+definePage({
   data: {
     orderNo: '',
     leaderAddressVo: {},
@@ -35,8 +36,14 @@ Page({
 
     try {
       const order = await api.getConfirmOrder();
-      const leaderAddressVo = order.leaderAddressVo || {};
-      storage.setPickupLocation(leaderAddressVo);
+
+      const localPickup = storage.getPickupLocation() || {};
+      const serverLeaderAddressVo = order && order.leaderAddressVo ? order.leaderAddressVo : null;
+      const serverLeaderId = serverLeaderAddressVo && (serverLeaderAddressVo.leaderId || serverLeaderAddressVo.id);
+      const localLeaderId = localPickup && (localPickup.leaderId || localPickup.id);
+      const leaderAddressVo = serverLeaderId ? serverLeaderAddressVo : localLeaderId ? localPickup : (serverLeaderAddressVo || localPickup || {});
+
+      if (serverLeaderId) storage.setPickupLocation(serverLeaderAddressVo);
       this.setData({
         orderNo: order.orderNo || '',
         leaderAddressVo,
@@ -59,6 +66,14 @@ Page({
   async onSubmit() {
     if (this.data.submitting) return;
 
+    const leaderAddressVo = this.data.leaderAddressVo || {};
+    const leaderId = leaderAddressVo.leaderId || leaderAddressVo.id;
+    if (!leaderId) {
+      wx.showToast({ title: '请先选择提货点', icon: 'none' });
+      wx.navigateTo({ url: '/pages/pickupLocation/pickupLocation' });
+      return;
+    }
+
     const receiverName = String(this.data.receiverName || '').trim();
     const receiverPhone = String(this.data.receiverPhone || '').trim();
     if (!receiverName) {
@@ -74,13 +89,13 @@ Page({
     try {
       await api.postSubmitOrder({
         couponId: 0,
-        leaderId: this.data.leaderAddressVo.leaderId || 0,
+        leaderId,
         orderNo: this.data.orderNo,
         receiverName,
         receiverPhone
       });
       wx.showToast({ title: '下单成功', icon: 'none' });
-      wx.redirectTo({ url: '/pages/orderList/orderList' });
+      wx.switchTab({ url: '/pages/orderList/orderList' });
     } catch (e) {
       console.error(e);
     } finally {

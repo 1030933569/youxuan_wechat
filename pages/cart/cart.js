@@ -1,12 +1,13 @@
 const api = require('../../utils/api');
 const storage = require('../../utils/storage');
+const { definePage } = require('../../utils/mp-guard');
 
 function toNumber(v) {
   const n = Number(v);
   return Number.isFinite(n) ? n : 0;
 }
 
-Page({
+definePage({
   data: {
     cartList: [],
     checkedValues: [],
@@ -145,6 +146,14 @@ Page({
   gotoOrderConfirm() {
     if (this.data.selectedCount <= 0) {
       wx.showToast({ title: '请选择商品', icon: 'none' });
+      return;
+    }
+
+    const pickupLocation = storage.getPickupLocation() || {};
+    const leaderId = pickupLocation.leaderId || pickupLocation.id;
+    if (!leaderId) {
+      wx.showToast({ title: '请先选择提货点', icon: 'none' });
+      wx.navigateTo({ url: '/pages/pickupLocation/pickupLocation' });
       return;
     }
     wx.navigateTo({ url: '/pages/orderConfirm/orderConfirm' });

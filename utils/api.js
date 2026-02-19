@@ -5,7 +5,10 @@ function cleanParams(params) {
   if (!params) return data;
   Object.keys(params).forEach((key) => {
     const value = params[key];
-    if (value !== undefined && value !== null) data[key] = value;
+    if (value === undefined || value === null) return;
+    if (typeof value === 'string' && value.trim() === '') return;
+    if (typeof value === 'number' && Number.isNaN(value)) return;
+    data[key] = value;
   });
   return data;
 }
@@ -75,6 +78,10 @@ module.exports = {
 
   getSelectLeader({ leaderId }) {
     return request({ url: `/user/leader/auth/selectLeader/${leaderId}`, showLoading: false });
+  },
+
+  postApplyLeader(data) {
+    return request({ url: '/user/leader/auth/apply', method: 'POST', data });
   }
 };
 

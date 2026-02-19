@@ -1,4 +1,6 @@
-Component({
+const { defineComponent } = require('../../utils/mp-guard');
+
+defineComponent({
   properties: {
     value: { type: Number, value: 1 },
     min: { type: Number, value: 1 },

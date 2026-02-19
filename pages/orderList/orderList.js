@@ -1,7 +1,8 @@
 const api = require('../../utils/api');
 const storage = require('../../utils/storage');
+const { definePage } = require('../../utils/mp-guard');
 
-Page({
+definePage({
   data: {
     records: [],
     page: 1,

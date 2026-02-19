@@ -1,18 +1,11 @@
 const api = require('../../utils/api');
 const storage = require('../../utils/storage');
+const { definePage } = require('../../utils/mp-guard');
 
-function getLocation() {
-  return new Promise((resolve, reject) => {
-    wx.getLocation({ type: 'gcj02', success: resolve, fail: reject });
-  });
-}
-
-Page({
+definePage({
   data: {
     list: [],
     currentLeaderId: null,
-    latitude: '',
-    longitude: '',
     page: 1,
     limit: 10,
     hasMore: true,
@@ -22,15 +15,7 @@ Page({
   onLoad() {
     const current = storage.getPickupLocation();
     this.setData({ currentLeaderId: current && current.id ? current.id : current && current.leaderId ? current.leaderId : null });
-
-    getLocation()
-      .then((res) => {
-        this.setData({ latitude: res.latitude, longitude: res.longitude });
-      })
-      .catch(() => {})
-      .finally(() => {
-        this.resetAndLoad();
-      });
+    this.resetAndLoad();
   },
 
   onReachBottom() {
@@ -56,13 +41,12 @@ Page({
       const page = this.data.page;
       const result = await api.getSearchLeader({
         page,
-        limit: this.data.limit,
-        latitude: this.data.latitude,
-        longitude: this.data.longitude
+        limit: this.data.limit
       });
       const content = (result && result.content) || [];
       const list = reset ? content : this.data.list.concat(content);
-      const hasMore = result ? !result.last : false;
+      const totalPages = result && typeof result.totalPages === 'number' ? result.totalPages : 0;
+      const hasMore = totalPages > 0 ? page < totalPages : content.length >= this.data.limit;
       this.setData({ list, hasMore, page: page + 1 });
     } catch (e) {
       console.error(e);
@@ -77,8 +61,9 @@ Page({
     if (!loc) return;
 
     try {
-      await api.getSelectLeader({ leaderId: loc.id });
-      storage.setPickupLocation(loc);
+      // 线上后端未开放 selectLeader 接口时，本地存储兜底，保证毕设可跑通
+      storage.setPickupLocation({ ...loc, leaderId: loc.id });
+      this.setData({ currentLeaderId: loc.id });
       wx.showToast({ title: '已设置提货点', icon: 'none' });
       wx.navigateBack();
     } catch (err) {

@@ -1,5 +1,5 @@
 .page {
-  padding-bottom: 140rpx;
+  padding-bottom: 120rpx;
 }
 
 .pickup {
@@ -42,6 +42,16 @@
   align-items: center;
 }
 
+.category-item.active .category-img {
+  border: 4rpx solid #ff6500;
+  box-sizing: border-box;
+}
+
+.category-item.active .category-name {
+  color: #ff6500;
+  font-weight: 700;
+}
+
 .category-img {
   width: 120rpx;
   height: 120rpx;
@@ -62,28 +72,26 @@
   color: #ff6500;
 }
 
-.bottom-actions {
-  position: fixed;
-  left: 20rpx;
-  right: 20rpx;
-  bottom: 24rpx;
-  display: flex;
-  gap: 16rpx;
+.apply-leader-section {
+  margin: 20rpx;
+  padding: 30rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 10rpx;
 }
 
-.action-btn {
-  flex: 1;
-  height: 88rpx;
-  line-height: 88rpx;
-  border-radius: 44rpx;
+.apply-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
   background: #ff6500;
   color: #fff;
-  font-size: 30rpx;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  border: none;
 }
 
-.action-btn.ghost {
-  background: #fff;
-  color: #ff6500;
-  border: 2rpx solid #ff6500;
+.apply-btn::after {
+  border: none;
 }
 
