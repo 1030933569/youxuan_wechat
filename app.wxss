@@ -19,7 +19,7 @@ page {
 }
 
 .text-red {
-  color: #ff6500;
+  color: #4facfe;
 }
 
 .text-muted {

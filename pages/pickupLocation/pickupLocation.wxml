@@ -1,7 +1,9 @@
 <view class="page container">
   <view class="tip text-muted">列表选择提货点（不使用地图选点）</view>
 
-  <view wx:if="{{list.length === 0}}" class="empty text-muted">暂无提货点</view>
+  <navigator url="/pages/applyLeader/applyLeader" class="open-btn">我要开团（创建提货点）</navigator>
+
+  <view wx:if="{{list.length === 0 && !loading}}" class="empty text-muted">暂无提货点</view>
 
   <view wx:else>
     <view class="loc card" wx:for="{{list}}" wx:for-item="loc" wx:for-index="idx" wx:key="id" bindtap="onSelect" data-index="{{idx}}">

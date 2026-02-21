@@ -9,7 +9,7 @@
   height: 88rpx;
   line-height: 88rpx;
   border-radius: 44rpx;
-  background: #ff6500;
+  background: #4facfe;
   color: #fff;
   font-size: 32rpx;
 }

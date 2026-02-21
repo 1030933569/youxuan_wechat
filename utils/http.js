@@ -1,6 +1,6 @@
 const storage = require('./storage');
 
-const BASE_URL = 'https://ssysmono.zeabur.app/api';
+const BASE_URL = 'http://localhost:8080/api';
 
 function buildUrl(url) {
   if (/^https?:\/\//i.test(url)) return url;

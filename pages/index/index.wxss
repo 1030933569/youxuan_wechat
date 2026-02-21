@@ -43,12 +43,12 @@
 }
 
 .category-item.active .category-img {
-  border: 4rpx solid #ff6500;
+  border: 4rpx solid #4facfe;
   box-sizing: border-box;
 }
 
 .category-item.active .category-name {
-  color: #ff6500;
+  color: #4facfe;
   font-weight: 700;
 }
 
@@ -69,7 +69,7 @@
   margin: 30rpx 20rpx 0;
   font-size: 34rpx;
   font-weight: 700;
-  color: #ff6500;
+  color: #4facfe;
 }
 
 .apply-leader-section {
@@ -84,7 +84,7 @@
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
-  background: #ff6500;
+  background: #4facfe;
   color: #fff;
   font-size: 32rpx;
   border-radius: 40rpx;

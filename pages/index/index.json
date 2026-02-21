@@ -1,7 +1,6 @@
 {
-  "navigationBarTitleText": "硅谷优选",
+  "navigationBarTitleText": "团团团购",
   "usingComponents": {
     "product-item": "/components/product-item/product-item"
   }
 }
-

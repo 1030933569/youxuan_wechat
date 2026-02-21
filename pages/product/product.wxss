@@ -49,7 +49,7 @@
   height: 88rpx;
   line-height: 88rpx;
   border-radius: 44rpx;
-  background: #ff6500;
+  background: #4facfe;
   color: #fff;
   font-size: 30rpx;
 }
@@ -60,8 +60,8 @@
   line-height: 88rpx;
   border-radius: 44rpx;
   background: #fff;
-  color: #ff6500;
-  border: 2rpx solid #ff6500;
+  color: #4facfe;
+  border: 2rpx solid #4facfe;
   font-size: 30rpx;
 }
 

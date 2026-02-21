@@ -14,7 +14,7 @@
 }
 
 .status {
-  color: #ff6500;
+  color: #4facfe;
   font-size: 24rpx;
 }
 

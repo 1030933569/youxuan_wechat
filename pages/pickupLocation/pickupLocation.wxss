@@ -15,7 +15,7 @@
 .tag {
   font-size: 22rpx;
   color: #fff;
-  background: #ff6500;
+  background: #4facfe;
   padding: 4rpx 12rpx;
   border-radius: 999rpx;
 }
@@ -33,5 +33,16 @@
 .load {
   text-align: center;
   padding: 16rpx 0 32rpx;
+}
+
+.open-btn {
+  display: block;
+  text-align: center;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  background: #4facfe;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
 }
 

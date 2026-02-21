@@ -41,14 +41,11 @@
   font-weight: 700;
 }
 
-.del {
-  height: 56rpx;
-  line-height: 56rpx;
-  padding: 0 16rpx;
-  border-radius: 28rpx;
-  background: #eee;
-  color: #333;
-  font-size: 24rpx;
+.del-icon {
+  padding: 10rpx 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottom {
@@ -74,7 +71,7 @@
   line-height: 64rpx;
   padding: 0 22rpx;
   border-radius: 32rpx;
-  background: #ff6500;
+  background: #4facfe;
   color: #fff;
   font-size: 26rpx;
 }

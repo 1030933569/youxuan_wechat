@@ -6,16 +6,18 @@
   <view wx:else class="list">
     <checkbox-group bindchange="onCheckedGroupChange">
       <view class="item card" wx:for="{{cartList}}" wx:key="skuId">
-        <checkbox class="ck" value="{{item.skuId}}" checked="{{item.isChecked === 1}}"></checkbox>
+        <checkbox class="ck" value="{{item.skuId}}" checked="{{item.isChecked === 1}}" color="#4facfe"></checkbox>
         <image class="thumb" src="{{item.imgUrl}}" mode="aspectFill"></image>
         <view class="content">
           <view class="name">{{item.skuName}}</view>
-          <view class="row flex-between">
+          <view class="row flex-between" style="align-items: center;">
             <text class="price text-red">￥{{item.cartPrice}}</text>
             <number-box value="{{item.skuNum}}" min="1" max="999" data-skuid="{{item.skuId}}" bind:change="onSkuNumChange"></number-box>
           </view>
         </view>
-        <button class="del" size="mini" data-skuid="{{item.skuId}}" bindtap="onDelete">删</button>
+        <view class="del-icon" data-skuid="{{item.skuId}}" bindtap="onDelete">
+          <icon type="cancel" size="20" color="#ccc" />
+        </view>
       </view>
     </checkbox-group>
   </view>

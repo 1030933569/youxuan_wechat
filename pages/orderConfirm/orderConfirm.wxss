@@ -64,7 +64,7 @@
   line-height: 64rpx;
   padding: 0 22rpx;
   border-radius: 32rpx;
-  background: #ff6500;
+  background: #4facfe;
   color: #fff;
   font-size: 26rpx;
 }

@@ -20,16 +20,10 @@ definePage({
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
-        this.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
-        });
+        this.setData({ latitude: res.latitude, longitude: res.longitude });
       },
       fail: () => {
-        wx.showToast({
-          title: '无法获取位置',
-          icon: 'none'
-        });
+        this.setData({ latitude: 0, longitude: 0 });
       }
     });
   },
@@ -61,14 +55,6 @@ definePage({
       return;
     }
 
-    if (!latitude || !longitude) {
-      wx.showToast({
-        title: '请获取位置信息',
-        icon: 'none'
-      });
-      return;
-    }
-
     this.setData({ loading: true });
 
     try {
@@ -84,23 +70,11 @@ definePage({
 
       const result = await api.postApplyLeader(leaderData);
 
-      wx.showToast({
-        title: '开团成功',
-        icon: 'success'
-      });
+      wx.showToast({ title: '开团成功', icon: 'success' });
 
-      // 保存提货点信息到本地存储
-      storage.setPickupLocation({
-        id: result.leaderId,
-        leaderId: result.leaderId,
-        takeName: result.takeName,
-        detailAddress: result.detailAddress
-      });
+      if (result) storage.setPickupLocation(result);
 
-      // 返回首页
-      setTimeout(() => {
-        wx.navigateBack();
-      }, 1500);
+      setTimeout(() => { wx.navigateBack(); }, 1500);
     } catch (err) {
       console.error('开团失败:', err);
       wx.showToast({

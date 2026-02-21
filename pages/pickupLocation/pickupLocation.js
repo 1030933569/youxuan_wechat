@@ -44,20 +44,6 @@ definePage({
         return;
       }
 
-      const leaderId = Number(loc.id || loc.leaderId);
-      if (!Number.isFinite(leaderId) || leaderId <= 0) {
-        wx.showToast({ title: '提货点数据异常', icon: 'none' });
-        return;
-      }
-
-      // 选择提货点需要写回后端，保证下单时后端能取到用户的提货点信息
-      const leaderAddressVo = await api.getSelectLeader({ leaderId });
-      if (leaderAddressVo) storage.setPickupLocation(leaderAddressVo);
-
-      this.setData({ currentLeaderId: leaderId });
-      wx.showToast({ title: '已设置提货点', icon: 'none' });
-      wx.navigateBack();
-      return;
       const page = this.data.page;
       const result = await api.getSearchLeader({
         page,
@@ -81,8 +67,8 @@ definePage({
     if (!loc) return;
 
     try {
-      // 线上后端未开放 selectLeader 接口时，本地存储兜底，保证毕设可跑通
-      storage.setPickupLocation({ ...loc, leaderId: loc.id });
+      const leaderAddressVo = await api.getSelectLeader({ leaderId: loc.id });
+      storage.setPickupLocation(leaderAddressVo || { ...loc, leaderId: loc.id });
       this.setData({ currentLeaderId: loc.id });
       wx.showToast({ title: '已设置提货点', icon: 'none' });
       wx.navigateBack();

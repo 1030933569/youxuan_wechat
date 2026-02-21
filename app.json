@@ -11,7 +11,7 @@
   ],
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#ff6500",
+    "selectedColor": "#4facfe",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
@@ -36,11 +36,10 @@
     ]
   },
   "window": {
-    "navigationBarTitleText": "硅谷优选",
-    "navigationBarBackgroundColor": "#ff6500",
+    "navigationBarTitleText": "团团团购",
+    "navigationBarBackgroundColor": "#4facfe",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f8f8f8"
   },
   "sitemapLocation": "sitemap.json"
 }
-
