@@ -5,6 +5,7 @@
     "pages/product/product",
     "pages/cart/cart",
     "pages/orderConfirm/orderConfirm",
+    "pages/mockPay/mockPay",
     "pages/orderList/orderList",
     "pages/pickupLocation/pickupLocation",
     "pages/applyLeader/applyLeader"

@@ -1,7 +1,7 @@
 <view class="page container">
   <view class="card block">
-    <view class="block-title">提货点</view>
-    <view>{{leaderAddressVo.takeName || '未选择提货点'}}</view>
+    <view class="block-title">社区提货点</view>
+    <view>{{leaderAddressVo.takeName || '未选择社区提货点'}}</view>
     <view class="text-muted">{{leaderAddressVo.detailAddress}}</view>
   </view>
 
@@ -18,7 +18,7 @@
       <view class="sku-content">
         <view class="sku-name">{{item.skuName}}</view>
         <view class="flex-between">
-          <text class="text-red">￥{{item.cartPrice}}</text>
+          <text class="text-red">¥{{item.cartPrice}}</text>
           <text class="text-muted">x{{item.skuNum}}</text>
         </view>
       </view>
@@ -29,10 +29,9 @@
     <view class="flex-between">
       <view>
         <text class="text-muted">合计：</text>
-        <text class="text-red">￥{{totalAmount}}</text>
+        <text class="text-red">¥{{totalAmount}}</text>
       </view>
       <button class="submit" size="mini" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onSubmit">提交订单</button>
     </view>
   </view>
 </view>
-

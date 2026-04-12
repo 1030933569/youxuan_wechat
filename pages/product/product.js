@@ -11,7 +11,7 @@ definePage({
   onLoad(options) {
     const skuId = Number(options && options.skuId);
     if (!skuId) {
-      wx.showToast({ title: '参数错误', icon: 'none' });
+      wx.showToast({ title: '商品参数错误', icon: 'none' });
       wx.navigateBack();
       return;
     }
@@ -43,4 +43,3 @@ definePage({
     wx.switchTab({ url: '/pages/cart/cart' });
   }
 });
-

@@ -1,6 +1,57 @@
-.tip {
-  margin-bottom: 16rpx;
+.intro {
+  margin-bottom: 20rpx;
+  padding: 24rpx;
+  border: 2rpx solid #dceeff;
+  background: linear-gradient(135deg, #eff8ff 0%, #ffffff 100%);
+}
+
+.intro-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.intro-desc {
+  display: block;
+  margin-top: 12rpx;
   font-size: 24rpx;
+  color: #5d6b7a;
+  line-height: 1.7;
+}
+
+.intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 18rpx;
+}
+
+.intro-tag {
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: #fff;
+  border: 1rpx solid #cfe6ff;
+  color: #4facfe;
+  font-size: 22rpx;
+}
+
+.open-btn {
+  display: block;
+  text-align: center;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  background: #4facfe;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.empty {
+  display: block;
+  padding: 40rpx 0 20rpx;
+  text-align: center;
+  font-size: 26rpx;
 }
 
 .loc {
@@ -30,19 +81,13 @@
   font-size: 24rpx;
 }
 
+.service-tip {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #4facfe;
+}
+
 .load {
   text-align: center;
   padding: 16rpx 0 32rpx;
 }
-
-.open-btn {
-  display: block;
-  text-align: center;
-  padding: 20rpx;
-  margin-bottom: 20rpx;
-  background: #4facfe;
-  color: #fff;
-  border-radius: 10rpx;
-  font-size: 28rpx;
-}
-

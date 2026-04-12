@@ -4,25 +4,122 @@
 
 .pickup {
   margin: 20rpx;
-  padding: 22rpx 20rpx;
+  padding: 24rpx 20rpx;
   display: flex;
   align-items: center;
 }
 
+.pickup-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
-  color: #888;
+  color: #4facfe;
   font-size: 24rpx;
-  margin-right: 14rpx;
+  font-weight: 700;
 }
 
 .name {
-  flex: 1;
-  font-size: 28rpx;
-  font-weight: 600;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pickup-tip {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #888;
+  line-height: 1.6;
 }
 
 .arrow {
+  margin-left: 16rpx;
   color: #bbb;
+  font-size: 32rpx;
+}
+
+.community-banner {
+  margin: 0 20rpx 20rpx;
+  padding: 24rpx;
+  border: 2rpx solid #dceeff;
+  background: linear-gradient(135deg, #eff8ff 0%, #ffffff 100%);
+}
+
+.community-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.community-badge {
+  align-self: flex-start;
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: #4facfe;
+  color: #fff;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.community-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1f2d3d;
+  line-height: 1.4;
+}
+
+.community-desc {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #5d6b7a;
+  line-height: 1.7;
+}
+
+.community-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 18rpx;
+}
+
+.community-tag {
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  border: 1rpx solid #cfe6ff;
+  background: #fff;
+  color: #4facfe;
+  font-size: 22rpx;
+}
+
+.apply-leader-section {
+  margin: 0 20rpx 20rpx;
+  padding: 26rpx 24rpx;
+}
+
+.apply-note {
+  display: block;
+  margin-bottom: 18rpx;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.apply-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #4facfe;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  border: none;
+}
+
+.apply-btn::after {
+  border: none;
 }
 
 .category-sv {
@@ -71,27 +168,3 @@
   font-weight: 700;
   color: #4facfe;
 }
-
-.apply-leader-section {
-  margin: 20rpx;
-  padding: 30rpx;
-  text-align: center;
-  background: #fff;
-  border-radius: 10rpx;
-}
-
-.apply-btn {
-  width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
-  background: #4facfe;
-  color: #fff;
-  font-size: 32rpx;
-  border-radius: 40rpx;
-  border: none;
-}
-
-.apply-btn::after {
-  border: none;
-}
-

@@ -4,8 +4,14 @@
   <view wx:else>
     <view class="order card" wx:for="{{records}}" wx:for-item="order" wx:key="id">
       <view class="head flex-between">
-        <text class="time">{{order.createTime}}</text>
-        <text class="status">{{order.param.orderStatusName}}</text>
+        <view class="meta">
+          <text class="time">{{order.createTime}}</text>
+          <text class="order-no">订单号：{{order.orderNo}}</text>
+        </view>
+
+        <view class="status-group">
+          <text class="status">{{order.param.orderStatusName}}</text>
+        </view>
       </view>
 
       <view class="sku" wx:for="{{order.orderItemList}}" wx:for-item="sku" wx:key="skuId">
@@ -13,7 +19,7 @@
         <view class="sku-content">
           <view class="sku-name">{{sku.skuName}}</view>
           <view class="flex-between">
-            <text class="text-red">￥{{sku.skuPrice}}</text>
+            <text class="text-red">¥{{sku.skuPrice}}</text>
             <text class="text-muted">x{{sku.skuNum}}</text>
           </view>
         </view>
@@ -21,7 +27,21 @@
 
       <view class="total flex-between">
         <text class="text-muted">合计</text>
-        <text class="text-red">￥{{order.totalAmount}}</text>
+        <text class="text-red">¥{{order.totalAmount}}</text>
+      </view>
+
+      <view class="actions" wx:if="{{order.canPay}}">
+        <button
+          class="pay-btn"
+          size="mini"
+          bindtap="onPayOrder"
+          data-order-id="{{order.id}}"
+          data-order-no="{{order.orderNo}}"
+          data-total-amount="{{order.totalAmount}}"
+          data-receiver-name="{{order.receiverName}}"
+        >
+          去支付
+        </button>
       </view>
     </view>
 
@@ -29,4 +49,3 @@
     <view class="load text-muted" wx:else>{{hasMore ? '上拉加载更多' : '没有更多了'}}</view>
   </view>
 </view>
-

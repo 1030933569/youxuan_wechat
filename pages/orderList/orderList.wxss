@@ -4,8 +4,17 @@
 }
 
 .head {
+  align-items: flex-start;
+  gap: 20rpx;
   padding-bottom: 12rpx;
   border-bottom: 2rpx solid #f2f2f2;
+}
+
+.meta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6rpx;
 }
 
 .time {
@@ -13,9 +22,20 @@
   font-size: 24rpx;
 }
 
+.order-no {
+  color: #999;
+  font-size: 22rpx;
+}
+
+.status-group {
+  display: flex;
+  align-items: center;
+}
+
 .status {
   color: #4facfe;
   font-size: 24rpx;
+  font-weight: 600;
 }
 
 .sku {
@@ -50,8 +70,25 @@
   padding-top: 12rpx;
 }
 
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16rpx;
+}
+
+.pay-btn {
+  margin: 0;
+  min-width: 160rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border: none;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #ff9a3c 0%, #ff6a3d 100%);
+  color: #fff;
+  font-size: 24rpx;
+}
+
 .load {
   text-align: center;
   padding: 16rpx 0 32rpx;
 }
-

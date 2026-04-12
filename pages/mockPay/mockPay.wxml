@@ -1,0 +1,33 @@
+<view class="page container">
+  <view class="card panel">
+    <view class="eyebrow">订单支付</view>
+    <view class="title">支付确认</view>
+    <view class="desc">请确认本次订单的支付信息，确认后将返回订单列表。</view>
+
+    <view class="summary">
+      <view class="row flex-between">
+        <text class="label">订单号</text>
+        <text class="value order-no">{{orderNo}}</text>
+      </view>
+      <view class="row flex-between">
+        <text class="label">支付金额</text>
+        <text class="amount">¥{{totalAmount}}</text>
+      </view>
+      <view class="row flex-between" wx:if="{{receiverName}}">
+        <text class="label">提货人</text>
+        <text class="value">{{receiverName}}</text>
+      </view>
+    </view>
+
+    <view class="tips">
+      <view class="tip">1. 点击“确认支付”后，会返回订单列表。</view>
+      <view class="tip">2. 订单列表会展示最新支付状态。</view>
+      <view class="tip">3. 请核对订单号与支付金额后再继续。</view>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="ghost" bindtap="onCancel">暂不支付</button>
+    <button class="primary" loading="{{paying}}" disabled="{{paying}}" bindtap="onConfirmPay">确认支付</button>
+  </view>
+</view>

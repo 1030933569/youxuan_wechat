@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "团团团购",
+  "navigationBarTitleText": "社区团购",
   "usingComponents": {
     "product-item": "/components/product-item/product-item"
   }

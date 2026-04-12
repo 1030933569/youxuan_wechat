@@ -12,6 +12,17 @@ function flattenCheckedItems(carInfoVoList) {
   return items;
 }
 
+function buildMockPayUrl(payload) {
+  const query = [
+    `orderId=${encodeURIComponent(payload.orderId || '')}`,
+    `orderNo=${encodeURIComponent(payload.orderNo || '')}`,
+    `totalAmount=${encodeURIComponent(payload.totalAmount || '0.00')}`,
+    `receiverName=${encodeURIComponent(payload.receiverName || '')}`
+  ].join('&');
+
+  return `/pages/mockPay/mockPay?${query}`;
+}
+
 definePage({
   data: {
     orderNo: '',
@@ -48,7 +59,6 @@ definePage({
         storage.setPickupLocation(serverLeaderAddressVo);
       } else if (Number.isFinite(localLeaderId) && localLeaderId > 0) {
         leaderAddressVo = localPickup;
-        // 兼容历史：如果本地有提货点但后端未绑定，则同步一次到后端
         try {
           const synced = await api.getSelectLeader({ leaderId: localLeaderId });
           if (synced) {
@@ -59,6 +69,7 @@ definePage({
           console.error(err);
         }
       }
+
       this.setData({
         orderNo: order.orderNo || '',
         leaderAddressVo,
@@ -84,7 +95,7 @@ definePage({
     const leaderAddressVo = this.data.leaderAddressVo || {};
     const leaderId = Number(leaderAddressVo.leaderId || leaderAddressVo.id);
     if (!Number.isFinite(leaderId) || leaderId <= 0) {
-      wx.showToast({ title: '请先选择提货点', icon: 'none' });
+      wx.showToast({ title: '请先选择社区提货点', icon: 'none' });
       wx.navigateTo({ url: '/pages/pickupLocation/pickupLocation' });
       return;
     }
@@ -103,15 +114,22 @@ definePage({
     this.setData({ submitting: true });
     try {
       await api.getSelectLeader({ leaderId });
-      await api.postSubmitOrder({
+      const orderId = await api.postSubmitOrder({
         couponId: 0,
         leaderId,
         orderNo: this.data.orderNo,
         receiverName,
         receiverPhone
       });
-      wx.showToast({ title: '下单成功', icon: 'none' });
-      wx.switchTab({ url: '/pages/orderList/orderList' });
+
+      wx.navigateTo({
+        url: buildMockPayUrl({
+          orderId,
+          orderNo: this.data.orderNo,
+          totalAmount: this.data.totalAmount,
+          receiverName
+        })
+      });
     } catch (e) {
       console.error(e);
     } finally {

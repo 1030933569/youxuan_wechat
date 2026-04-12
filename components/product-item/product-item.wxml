@@ -1,12 +1,18 @@
 <view class="product card" bindtap="onTap">
   <image class="thumb" src="{{item.imgUrl}}" mode="aspectFill"></image>
   <view class="info">
+    <view class="tag-row">
+      <text class="community-tag">社区团购</text>
+    </view>
     <view class="title">{{item.title || item.skuName}}</view>
+    <view class="subtext">围绕社区提货点集中拼单，统一自提更省心</view>
     <view class="meta text-muted">已售{{item.sale || 0}} / 库存{{item.stock || 0}}</view>
     <view class="bottom flex-between">
-      <text class="price text-red">￥{{item.price}}</text>
-      <button class="add-btn" size="mini" catchtap="onAdd">加入</button>
+      <view class="price-wrap">
+        <text class="price-label">社区拼单价</text>
+        <text class="price text-red">¥{{item.price}}</text>
+      </view>
+      <button class="add-btn" size="mini" catchtap="onAdd">加入购物车</button>
     </view>
   </view>
 </view>
-

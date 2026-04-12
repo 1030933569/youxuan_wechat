@@ -58,6 +58,10 @@ module.exports = {
     return request({ url: '/order/auth/submitOrder', method: 'POST', data });
   },
 
+  postMockPay({ orderNo }) {
+    return request({ url: `/payment/weixin/auth/mockPay/${orderNo}`, method: 'POST', showLoading: false });
+  },
+
   getFindUserOrder(params = {}) {
     const { page = 1, limit = 10, ...rest } = params;
     return request({

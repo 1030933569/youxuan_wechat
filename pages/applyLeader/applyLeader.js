@@ -4,15 +4,14 @@ const { definePage } = require('../../utils/mp-guard');
 
 definePage({
   data: {
-    takeName: '', // 提货点名称
-    detailAddress: '', // 详细地址
-    latitude: '', // 纬度
-    longitude: '', // 经度
+    takeName: '',
+    detailAddress: '',
+    latitude: '',
+    longitude: '',
     loading: false
   },
 
   onLoad() {
-    // 获取当前位置
     this.getLocation();
   },
 
@@ -41,7 +40,7 @@ definePage({
 
     if (!takeName) {
       wx.showToast({
-        title: '请填写提货点名称',
+        title: '请输入社区提货点名称',
         icon: 'none'
       });
       return;
@@ -49,7 +48,7 @@ definePage({
 
     if (!detailAddress) {
       wx.showToast({
-        title: '请填写详细地址',
+        title: '请输入社区提货点详细地址',
         icon: 'none'
       });
       return;
@@ -70,15 +69,15 @@ definePage({
 
       const result = await api.postApplyLeader(leaderData);
 
-      wx.showToast({ title: '开团成功', icon: 'success' });
+      wx.showToast({ title: '社区团长申请成功', icon: 'success' });
 
       if (result) storage.setPickupLocation(result);
 
       setTimeout(() => { wx.navigateBack(); }, 1500);
     } catch (err) {
-      console.error('开团失败:', err);
+      console.error('社区团长申请失败', err);
       wx.showToast({
-        title: '开团失败，请重试',
+        title: '社区团长申请失败，请重试',
         icon: 'none'
       });
     } finally {

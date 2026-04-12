@@ -152,11 +152,10 @@ definePage({
     const pickupLocation = storage.getPickupLocation() || {};
     const leaderId = pickupLocation.leaderId || pickupLocation.id;
     if (!leaderId) {
-      wx.showToast({ title: '请先选择提货点', icon: 'none' });
+      wx.showToast({ title: '请先选择社区提货点', icon: 'none' });
       wx.navigateTo({ url: '/pages/pickupLocation/pickupLocation' });
       return;
     }
     wx.navigateTo({ url: '/pages/orderConfirm/orderConfirm' });
   }
 });
-

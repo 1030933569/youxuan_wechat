@@ -1,0 +1,106 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 200rpx;
+}
+
+.panel {
+  margin-top: 24rpx;
+  padding: 28rpx;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #fff4e8;
+  color: #d46b08;
+  font-size: 22rpx;
+}
+
+.title {
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #222;
+}
+
+.desc {
+  margin-top: 12rpx;
+  color: #666;
+  font-size: 26rpx;
+  line-height: 1.7;
+}
+
+.summary {
+  margin-top: 28rpx;
+  padding: 12rpx 0;
+  border-top: 2rpx solid #f3f3f3;
+  border-bottom: 2rpx solid #f3f3f3;
+}
+
+.row {
+  padding: 18rpx 0;
+}
+
+.label {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.value {
+  color: #222;
+  font-size: 26rpx;
+}
+
+.order-no {
+  max-width: 360rpx;
+  text-align: right;
+  word-break: break-all;
+}
+
+.amount {
+  color: #fa541c;
+  font-size: 38rpx;
+  font-weight: 700;
+}
+
+.tips {
+  margin-top: 24rpx;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+}
+
+.tip {
+  color: #4a5872;
+  font-size: 24rpx;
+  line-height: 1.9;
+}
+
+.actions {
+  position: fixed;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: 24rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.actions button {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 999rpx;
+  font-size: 28rpx;
+}
+
+.ghost {
+  background: #fff;
+  color: #4a5872;
+  border: 2rpx solid #d8e6f7;
+}
+
+.primary {
+  background: linear-gradient(135deg, #ff9a3c 0%, #ff6a3d 100%);
+  color: #fff;
+}

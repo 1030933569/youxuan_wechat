@@ -4,6 +4,39 @@
   background-color: #f8f8f8;
 }
 
+.hero {
+  margin-bottom: 20rpx;
+  padding: 28rpx;
+  border: 2rpx solid #dceeff;
+  background: linear-gradient(135deg, #eff8ff 0%, #ffffff 100%);
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: #4facfe;
+  color: #fff;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.hero-title {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.hero-desc {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #5d6b7a;
+  line-height: 1.7;
+}
+
 .form {
   background-color: #fff;
   padding: 30rpx;

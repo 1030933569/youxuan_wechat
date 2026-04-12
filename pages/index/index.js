@@ -33,9 +33,12 @@ definePage({
       const serverLeaderAddressVo = home && home.leaderAddressVo ? home.leaderAddressVo : null;
       const serverLeaderId = serverLeaderAddressVo && (serverLeaderAddressVo.leaderId || serverLeaderAddressVo.id);
       const localLeaderId = localPickup && (localPickup.leaderId || localPickup.id);
-      const leaderAddressVo = serverLeaderId ? serverLeaderAddressVo : localLeaderId ? localPickup : (serverLeaderAddressVo || localPickup || {});
+      const leaderAddressVo = serverLeaderId
+        ? serverLeaderAddressVo
+        : localLeaderId
+          ? localPickup
+          : (serverLeaderAddressVo || localPickup || {});
 
-      // 仅当后端返回了有效提货点时才覆盖本地选择
       if (serverLeaderId) storage.setPickupLocation(serverLeaderAddressVo);
 
       const hotSkuList = home.hotSkuList || [];
@@ -81,7 +84,7 @@ definePage({
         selectedCategoryName: '',
         hotSkuList: this.data.defaultHotSkuList || []
       });
-      wx.showToast({ title: '已取消筛选', icon: 'none' });
+      wx.showToast({ title: '已取消分类筛选', icon: 'none' });
       return;
     }
 
@@ -95,9 +98,9 @@ definePage({
       const content = (result && result.content) || [];
       this.setData({ hotSkuList: content });
       if (content.length === 0) {
-        wx.showToast({ title: '该分类暂无商品', icon: 'none' });
+        wx.showToast({ title: '该分类暂时没有商品', icon: 'none' });
       } else if (categoryName) {
-        wx.showToast({ title: `已切换：${categoryName}`, icon: 'none' });
+        wx.showToast({ title: `已切换到${categoryName}`, icon: 'none' });
       }
     } catch (err) {
       console.error(err);
@@ -115,4 +118,3 @@ definePage({
     }
   }
 });
-

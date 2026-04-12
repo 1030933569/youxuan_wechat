@@ -1,14 +1,29 @@
 <view class="page">
-  <!-- 提货点区域 -->
   <view class="pickup card" bindtap="onPickupTap">
-    <text class="label">提货点</text>
-    <text class="name">{{leaderAddressVo.takeName || '未选择提货点'}}</text>
+    <view class="pickup-main">
+      <text class="label">社区提货点</text>
+      <text class="name">{{leaderAddressVo.takeName || '请选择社区提货点'}}</text>
+      <text class="pickup-tip">{{leaderAddressVo.detailAddress || '围绕社区提货点集中拼单，统一自提更方便'}}</text>
+    </view>
     <text class="arrow">></text>
   </view>
 
-  <!-- 开团按钮 - 未选择提货点时显示 -->
-  <view class="apply-leader-section" wx:if="{{!leaderAddressVo.leaderId}}">
-    <button class="apply-btn" bindtap="onApplyLeaderTap">申请成为团长</button>
+  <view class="community-banner card">
+    <view class="community-header">
+      <text class="community-badge">社区团购</text>
+      <text class="community-title">同社区居民集中拼单，人数越多价格越优</text>
+    </view>
+    <text class="community-desc">围绕社区提货点集中拼单，由社区团长组织配送与自提，让买菜更省钱，也更贴近社区生活。</text>
+    <view class="community-tags">
+      <text class="community-tag">社区拼单</text>
+      <text class="community-tag">团长组织</text>
+      <text class="community-tag">统一自提</text>
+    </view>
+  </view>
+
+  <view class="apply-leader-section card" wx:if="{{!(leaderAddressVo.leaderId || leaderAddressVo.id)}}">
+    <text class="apply-note">还没有社区团长？你可以申请成为社区团长，为本社区居民组织团购与统一自提。</text>
+    <button class="apply-btn" bindtap="onApplyLeaderTap">申请成为社区团长</button>
   </view>
 
   <scroll-view scroll-x class="category-sv" show-scrollbar="false">
@@ -27,9 +42,8 @@
     </view>
   </scroll-view>
 
-  <view class="section-title">热销好货</view>
+  <view class="section-title">社区热销好货</view>
   <view class="product-list">
     <product-item wx:for="{{hotSkuList}}" wx:key="id" item="{{item}}" bind:tap="onProductTap" bind:add="onAddToCart"></product-item>
   </view>
 </view>
-

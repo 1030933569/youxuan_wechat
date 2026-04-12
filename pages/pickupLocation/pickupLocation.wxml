@@ -1,22 +1,30 @@
 <view class="page container">
-  <view class="tip text-muted">列表选择提货点（不使用地图选点）</view>
+  <view class="intro card">
+    <text class="intro-title">选择社区提货点</text>
+    <text class="intro-desc">请选择你所在社区的提货点，团长会统一组织配送与集中自提，让社区拼单更高效。</text>
+    <view class="intro-tags">
+      <text class="intro-tag">社区拼单</text>
+      <text class="intro-tag">团长配送</text>
+      <text class="intro-tag">统一自提</text>
+    </view>
+  </view>
 
-  <navigator url="/pages/applyLeader/applyLeader" class="open-btn">我要开团（创建提货点）</navigator>
+  <navigator url="/pages/applyLeader/applyLeader" class="open-btn">申请成为社区团长并创建提货点</navigator>
 
-  <view wx:if="{{list.length === 0 && !loading}}" class="empty text-muted">暂无提货点</view>
+  <view wx:if="{{list.length === 0 && !loading}}" class="empty text-muted">当前暂无社区提货点，欢迎申请成为社区团长</view>
 
   <view wx:else>
     <view class="loc card" wx:for="{{list}}" wx:for-item="loc" wx:for-index="idx" wx:key="id" bindtap="onSelect" data-index="{{idx}}">
       <view class="flex-between">
         <view class="name">{{loc.takeName}}</view>
-        <text class="tag" wx:if="{{currentLeaderId === loc.id}}">当前</text>
+        <text class="tag" wx:if="{{currentLeaderId === loc.id}}">当前社区</text>
       </view>
       <view class="addr text-muted">{{loc.detailAddress}}</view>
-      <view class="dist text-muted" wx:if="{{loc.distance}}">距离约 {{loc.distance}} km</view>
+      <view class="dist text-muted" wx:if="{{loc.distance}}">距你约 {{loc.distance}} km</view>
+      <view class="service-tip">社区居民集中下单后，将在此统一提货</view>
     </view>
 
     <view class="load text-muted" wx:if="{{loading}}">加载中...</view>
-    <view class="load text-muted" wx:else>{{hasMore ? '上拉加载更多' : '没有更多了'}}</view>
+    <view class="load text-muted" wx:else>{{hasMore ? '上拉加载更多社区提货点' : '没有更多社区提货点了'}}</view>
   </view>
 </view>
-

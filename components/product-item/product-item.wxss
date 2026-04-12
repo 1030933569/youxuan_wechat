@@ -20,10 +20,31 @@
   justify-content: space-between;
 }
 
+.tag-row {
+  margin-bottom: 8rpx;
+}
+
+.community-tag {
+  display: inline-block;
+  padding: 6rpx 14rpx;
+  border-radius: 999rpx;
+  background: #eff8ff;
+  color: #4facfe;
+  font-size: 20rpx;
+  font-weight: 700;
+}
+
 .title {
   font-size: 30rpx;
   font-weight: 600;
   line-height: 1.4;
+}
+
+.subtext {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.5;
 }
 
 .meta {
@@ -33,6 +54,16 @@
 
 .bottom {
   margin-top: 16rpx;
+}
+
+.price-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-label {
+  font-size: 20rpx;
+  color: #4facfe;
 }
 
 .price {
@@ -49,4 +80,3 @@
   color: #fff;
   font-size: 24rpx;
 }
-

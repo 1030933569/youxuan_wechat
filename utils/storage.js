@@ -68,4 +68,3 @@ module.exports = {
     safeRemove(PICKUP_LOCATION_KEY);
   }
 };
-

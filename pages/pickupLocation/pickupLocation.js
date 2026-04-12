@@ -38,8 +38,8 @@ definePage({
 
     this.setData({ loading: true });
     try {
-      const token = storage.getToken();
-      if (!token) {
+      const latestToken = storage.getToken();
+      if (!latestToken) {
         wx.reLaunch({ url: '/pages/login/login' });
         return;
       }
@@ -70,11 +70,10 @@ definePage({
       const leaderAddressVo = await api.getSelectLeader({ leaderId: loc.id });
       storage.setPickupLocation(leaderAddressVo || { ...loc, leaderId: loc.id });
       this.setData({ currentLeaderId: loc.id });
-      wx.showToast({ title: '已设置提货点', icon: 'none' });
+      wx.showToast({ title: '已切换社区提货点', icon: 'none' });
       wx.navigateBack();
     } catch (err) {
       console.error(err);
     }
   }
 });
-
