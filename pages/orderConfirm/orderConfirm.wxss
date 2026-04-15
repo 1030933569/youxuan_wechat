@@ -13,6 +13,78 @@
   margin-bottom: 14rpx;
 }
 
+.leader-tip {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #4facfe;
+}
+
+.group-block {
+  background: linear-gradient(180deg, #fff8ef 0%, #fff4e7 100%);
+}
+
+.group-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.group-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.82);
+  color: #ff7f32;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.group-copy {
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: #7d5b41;
+}
+
+.group-price-grid {
+  margin-top: 12rpx;
+  padding: 16rpx;
+  border-radius: 14rpx;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.group-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rpx 0;
+}
+
+.group-price-label {
+  font-size: 22rpx;
+  color: #7d5b41;
+}
+
+.group-price-value {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #4a2b12;
+}
+
+.group-price-value.highlight {
+  color: #ff7f32;
+}
+
+.group-price-value.save {
+  color: #2f9e61;
+}
+
+.group-tip {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  color: #9d7b61;
+}
+
 .input {
   height: 88rpx;
   line-height: 88rpx;
@@ -59,6 +131,13 @@
   padding: 18rpx 16rpx;
 }
 
+.origin-total {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #8e99a8;
+}
+
 .submit {
   height: 64rpx;
   line-height: 64rpx;
@@ -68,4 +147,3 @@
   color: #fff;
   font-size: 26rpx;
 }
-

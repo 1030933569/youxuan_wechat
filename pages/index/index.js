@@ -1,5 +1,6 @@
 const api = require('../../utils/api');
 const storage = require('../../utils/storage');
+const community = require('../../utils/community');
 const { definePage } = require('../../utils/mp-guard');
 
 definePage({
@@ -29,8 +30,8 @@ definePage({
     try {
       const home = await api.getHomeIndex();
 
-      const localPickup = storage.getPickupLocation() || {};
-      const serverLeaderAddressVo = home && home.leaderAddressVo ? home.leaderAddressVo : null;
+      const localPickup = community.normalizePickupLocation(storage.getPickupLocation() || {});
+      const serverLeaderAddressVo = home && home.leaderAddressVo ? community.normalizePickupLocation(home.leaderAddressVo) : null;
       const serverLeaderId = serverLeaderAddressVo && (serverLeaderAddressVo.leaderId || serverLeaderAddressVo.id);
       const localLeaderId = localPickup && (localPickup.leaderId || localPickup.id);
       const leaderAddressVo = serverLeaderId

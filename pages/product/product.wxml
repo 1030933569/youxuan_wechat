@@ -6,25 +6,49 @@
   </swiper>
 
   <view class="card info">
-    <view class="badge-row">
-      <text class="community-badge">社区团购商品</text>
-    </view>
     <view class="name">{{skuInfo.skuName}}</view>
     <view class="row flex-between">
       <view class="price-block">
-        <text class="price-label">社区拼单价</text>
-        <text class="price text-red">¥{{skuInfo.price}}</text>
+        <text class="price-label">{{selectedGroupSize === 3 ? '3人团价' : '2人团价'}}</text>
+        <text class="price text-red">¥{{selectedGroupSize === 3 ? pricingView.group3Price : pricingView.group2Price}}</text>
+        <text class="origin-price">单独买 ¥{{pricingView.singlePrice}}</text>
       </view>
       <text class="text-muted">库存：{{skuInfo.stock}} 已售：{{skuInfo.sale}}</text>
     </view>
-    <view class="community-note">
-      <text class="community-note-title">社区团购说明</text>
-      <text class="community-note-desc">社区居民围绕社区提货点集中拼单，由社区团长组织配送与自提，人数越多价格越优。</text>
-      <view class="community-features">
-        <text class="feature-tag">社区拼单</text>
-        <text class="feature-tag">团长组织</text>
-        <text class="feature-tag">统一自提</text>
+
+    <view class="group-panel">
+      <view class="group-copy">
+        <text class="group-title">拼团价演示</text>
+        <text class="group-desc">前端直接展示 2 人团、3 人团不同价格，发起后会在订单列表继续显示拼团进度。</text>
       </view>
+      <view class="pricing-cards">
+        <view class="pricing-card pricing-card-base">
+          <text class="pricing-title">单独买</text>
+          <text class="pricing-price">¥{{pricingView.singlePrice}}</text>
+          <text class="pricing-desc">按原价直接下单</text>
+        </view>
+        <view class="pricing-card {{selectedGroupSize === 2 ? 'active' : ''}}" bindtap="onSelectGroupSize" data-size="2">
+          <text class="pricing-title">2人团</text>
+          <text class="pricing-price">¥{{pricingView.group2Price}}</text>
+          <text class="pricing-desc">再邀 1 人，立省 ¥{{pricingView.group2Savings}}</text>
+        </view>
+        <view class="pricing-card {{selectedGroupSize === 3 ? 'active' : ''}}" bindtap="onSelectGroupSize" data-size="3">
+          <text class="pricing-title">3人团</text>
+          <text class="pricing-price">¥{{pricingView.group3Price}}</text>
+          <text class="pricing-desc">更低团价，立省 ¥{{pricingView.group3Savings}}</text>
+        </view>
+      </view>
+      <view class="group-options">
+        <view class="group-option {{selectedGroupSize === 2 ? 'active' : ''}}" bindtap="onSelectGroupSize" data-size="2">
+          <text class="group-option-title">2人团</text>
+          <text class="group-option-desc">适合快速成团，前端展示 95 折团价</text>
+        </view>
+        <view class="group-option {{selectedGroupSize === 3 ? 'active' : ''}}" bindtap="onSelectGroupSize" data-size="3">
+          <text class="group-option-title">3人团</text>
+          <text class="group-option-desc">成团门槛更高，前端展示 9 折团价</text>
+        </view>
+      </view>
+      <button class="group-start" bindtap="onStartGroup">发起{{selectedGroupSize}}人团</button>
     </view>
   </view>
 

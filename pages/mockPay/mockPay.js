@@ -15,6 +15,7 @@ definePage({
     orderId: '',
     orderNo: '',
     totalAmount: '0.00',
+    pricingLabel: '',
     receiverName: '',
     paying: false
   },
@@ -31,6 +32,7 @@ definePage({
       orderId: decodeValue(options.orderId),
       orderNo,
       totalAmount: decodeValue(options.totalAmount) || '0.00',
+      pricingLabel: decodeValue(options.pricingLabel),
       receiverName: decodeValue(options.receiverName)
     });
   },

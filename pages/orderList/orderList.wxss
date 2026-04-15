@@ -29,13 +29,81 @@
 
 .status-group {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10rpx;
 }
 
 .status {
   color: #4facfe;
   font-size: 24rpx;
   font-weight: 600;
+}
+
+.group-status {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #fff4e7;
+  color: #ff7f32;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.group-status.success {
+  background: #eef9f2;
+  color: #2f9e61;
+}
+
+.group-card {
+  margin-top: 18rpx;
+  padding: 18rpx;
+  border-radius: 16rpx;
+  background: linear-gradient(180deg, #fff8ef 0%, #fff3e2 100%);
+}
+
+.group-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.group-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.group-progress {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #4a2b12;
+}
+
+.pricing-label {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #ff7f32;
+}
+
+.community-text {
+  font-size: 22rpx;
+  color: #7d5b41;
+  line-height: 1.6;
+}
+
+.invite-btn {
+  margin: 0;
+  min-width: 188rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  border: none;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #ffb14f 0%, #ff7f32 100%);
+  color: #fff;
+  font-size: 22rpx;
 }
 
 .sku {
@@ -68,6 +136,13 @@
 
 .total {
   padding-top: 12rpx;
+}
+
+.origin-total {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #8e99a8;
 }
 
 .actions {

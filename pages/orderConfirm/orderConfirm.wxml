@@ -1,8 +1,31 @@
 <view class="page container">
   <view class="card block">
     <view class="block-title">社区提货点</view>
-    <view>{{leaderAddressVo.takeName || '未选择社区提货点'}}</view>
+    <view>{{leaderAddressVo.takeName || '大连市高新区凌水社区提货点'}}</view>
     <view class="text-muted">{{leaderAddressVo.detailAddress}}</view>
+    <view class="leader-tip">{{leaderAddressVo.leaderName || '张三'}}团长正在组织本社区拼单与统一自提</view>
+  </view>
+
+  <view wx:if="{{hasGroupPricing}}" class="card block group-block">
+    <view class="block-title">拼团方式</view>
+    <view class="group-summary">
+      <text class="group-badge">{{pricingLabel}}</text>
+      <text class="group-copy">提交订单后会在订单列表显示拼团进度，你可以继续邀请邻里参团。</text>
+      <view class="group-price-grid">
+        <view class="group-price-row">
+          <text class="group-price-label">单独买</text>
+          <text class="group-price-value">¥{{originalPrice}}</text>
+        </view>
+        <view class="group-price-row">
+          <text class="group-price-label">{{pricingLabel}}</text>
+          <text class="group-price-value highlight">¥{{displayPrice}}</text>
+        </view>
+        <view class="group-price-row">
+          <text class="group-price-label">当前立省</text>
+          <text class="group-price-value save">¥{{savingsAmount}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 
   <view class="card block">
@@ -18,7 +41,7 @@
       <view class="sku-content">
         <view class="sku-name">{{item.skuName}}</view>
         <view class="flex-between">
-          <text class="text-red">¥{{item.cartPrice}}</text>
+          <text class="text-red">¥{{hasGroupPricing && groupSkuId && item.skuId == groupSkuId ? displayPrice : item.cartPrice}}</text>
           <text class="text-muted">x{{item.skuNum}}</text>
         </view>
       </view>
@@ -28,8 +51,9 @@
   <view class="bottom card">
     <view class="flex-between">
       <view>
-        <text class="text-muted">合计：</text>
+        <text class="text-muted">{{hasGroupPricing ? pricingLabel : '合计'}}：</text>
         <text class="text-red">¥{{totalAmount}}</text>
+        <text wx:if="{{hasGroupPricing}}" class="origin-total">原价 ¥{{originalTotalAmount}}</text>
       </view>
       <button class="submit" size="mini" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onSubmit">提交订单</button>
     </view>

@@ -1,5 +1,6 @@
 const api = require('../../utils/api');
 const storage = require('../../utils/storage');
+const community = require('../../utils/community');
 const { definePage } = require('../../utils/mp-guard');
 
 definePage({
@@ -13,7 +14,7 @@ definePage({
   },
 
   onLoad() {
-    const current = storage.getPickupLocation();
+    const current = community.normalizePickupLocation(storage.getPickupLocation() || {});
     this.setData({ currentLeaderId: current && current.id ? current.id : current && current.leaderId ? current.leaderId : null });
     this.resetAndLoad();
   },
@@ -49,7 +50,7 @@ definePage({
         page,
         limit: this.data.limit
       });
-      const content = (result && result.content) || [];
+      const content = community.normalizePickupList((result && result.content) || []);
       const list = reset ? content : this.data.list.concat(content);
       const totalPages = result && typeof result.totalPages === 'number' ? result.totalPages : 0;
       const hasMore = totalPages > 0 ? page < totalPages : content.length >= this.data.limit;
@@ -67,8 +68,8 @@ definePage({
     if (!loc) return;
 
     try {
-      const leaderAddressVo = await api.getSelectLeader({ leaderId: loc.id });
-      storage.setPickupLocation(leaderAddressVo || { ...loc, leaderId: loc.id });
+      const leaderAddressVo = community.normalizePickupLocation(await api.getSelectLeader({ leaderId: loc.id }) || { ...loc, leaderId: loc.id });
+      storage.setPickupLocation(leaderAddressVo);
       this.setData({ currentLeaderId: loc.id });
       wx.showToast({ title: '已切换社区提货点', icon: 'none' });
       wx.navigateBack();

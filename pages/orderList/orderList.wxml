@@ -10,24 +10,47 @@
         </view>
 
         <view class="status-group">
+          <text wx:if="{{order.groupStatusText}}" class="group-status {{order.groupStatus === 'success' ? 'success' : ''}}">{{order.groupStatusText}}</text>
           <text class="status">{{order.param.orderStatusName}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{order.groupStatusText}}" class="group-card">
+        <view class="group-card-top">
+          <view class="group-copy">
+            <text class="group-progress">{{order.groupProgressText}}</text>
+            <text wx:if="{{order.pricingLabel}}" class="pricing-label">{{order.pricingLabel}} · 合计 ¥{{order.totalAmountText}}</text>
+            <text class="community-text">{{order.communityText}}</text>
+          </view>
+          <button
+            wx:if="{{order.showGroupInvite}}"
+            class="invite-btn"
+            size="mini"
+            bindtap="onInviteGroup"
+            data-order-no="{{order.orderNo}}"
+          >
+            邀请邻里参团
+          </button>
         </view>
       </view>
 
       <view class="sku" wx:for="{{order.orderItemList}}" wx:for-item="sku" wx:key="skuId">
         <image class="thumb" src="{{sku.imgUrl}}" mode="aspectFill"></image>
         <view class="sku-content">
-          <view class="sku-name">{{sku.skuName}}</view>
-          <view class="flex-between">
-            <text class="text-red">¥{{sku.skuPrice}}</text>
+        <view class="sku-name">{{sku.skuName}}</view>
+        <view class="flex-between">
+            <text class="text-red">¥{{sku.displaySkuPrice || sku.skuPrice}}</text>
             <text class="text-muted">x{{sku.skuNum}}</text>
           </view>
         </view>
       </view>
 
       <view class="total flex-between">
-        <text class="text-muted">合计</text>
-        <text class="text-red">¥{{order.totalAmount}}</text>
+        <view>
+          <text class="text-muted">{{order.pricingLabel || '合计'}}</text>
+          <text wx:if="{{order.pricingLabel}}" class="origin-total">原价 ¥{{order.originalTotalAmountText}}，省 ¥{{order.savingsAmountText}}</text>
+        </view>
+        <text class="text-red">¥{{order.totalAmountText || order.totalAmount}}</text>
       </view>
 
       <view class="actions" wx:if="{{order.canPay}}">
@@ -37,8 +60,9 @@
           bindtap="onPayOrder"
           data-order-id="{{order.id}}"
           data-order-no="{{order.orderNo}}"
-          data-total-amount="{{order.totalAmount}}"
+          data-total-amount="{{order.payTotalAmount || order.totalAmount}}"
           data-receiver-name="{{order.receiverName}}"
+          data-pricing-label="{{order.pricingLabel}}"
         >
           去支付
         </button>

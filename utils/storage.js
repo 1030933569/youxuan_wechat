@@ -2,6 +2,8 @@ const TOKEN_KEY = 'token';
 const USER_INFO_KEY = 'userInfo';
 const USER_ID_KEY = 'userId';
 const PICKUP_LOCATION_KEY = 'pickupLocation';
+const MOCK_GROUP_DRAFT_KEY = 'mockGroupDraft';
+const MOCK_ORDER_GROUPS_KEY = 'mockOrderGroups';
 
 function safeGet(key) {
   try {
@@ -33,6 +35,8 @@ module.exports = {
   USER_INFO_KEY,
   USER_ID_KEY,
   PICKUP_LOCATION_KEY,
+  MOCK_GROUP_DRAFT_KEY,
+  MOCK_ORDER_GROUPS_KEY,
 
   getToken() {
     return safeGet(TOKEN_KEY);
@@ -66,5 +70,25 @@ module.exports = {
   },
   clearPickupLocation() {
     safeRemove(PICKUP_LOCATION_KEY);
+  },
+
+  getMockGroupDraft() {
+    return safeGet(MOCK_GROUP_DRAFT_KEY);
+  },
+  setMockGroupDraft(draft) {
+    return safeSet(MOCK_GROUP_DRAFT_KEY, draft);
+  },
+  clearMockGroupDraft() {
+    safeRemove(MOCK_GROUP_DRAFT_KEY);
+  },
+
+  getMockOrderGroups() {
+    return safeGet(MOCK_ORDER_GROUPS_KEY) || {};
+  },
+  setMockOrderGroups(groups) {
+    return safeSet(MOCK_ORDER_GROUPS_KEY, groups);
+  },
+  clearMockOrderGroups() {
+    safeRemove(MOCK_ORDER_GROUPS_KEY);
   }
 };

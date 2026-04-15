@@ -13,6 +13,10 @@
         <text class="label">支付金额</text>
         <text class="amount">¥{{totalAmount}}</text>
       </view>
+      <view class="row flex-between" wx:if="{{pricingLabel}}">
+        <text class="label">价格类型</text>
+        <text class="value">{{pricingLabel}}</text>
+      </view>
       <view class="row flex-between" wx:if="{{receiverName}}">
         <text class="label">提货人</text>
         <text class="value">{{receiverName}}</text>
@@ -20,6 +24,7 @@
     </view>
 
     <view class="tips">
+      <view class="tip" wx:if="{{pricingLabel}}">当前支付金额已按前端展示的 {{pricingLabel}} 计算。</view>
       <view class="tip">1. 点击“确认支付”后，会返回订单列表。</view>
       <view class="tip">2. 订单列表会展示最新支付状态。</view>
       <view class="tip">3. 请核对订单号与支付金额后再继续。</view>
