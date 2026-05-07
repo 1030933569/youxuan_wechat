@@ -1,0 +1,170 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 140rpx;
+  box-sizing: border-box;
+  background: #f8f8f8;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 32rpx 28rpx;
+  border-radius: 16rpx;
+  background: linear-gradient(135deg, #4facfe 0%, #76d6ff 100%);
+  color: #fff;
+}
+
+.avatar {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 54rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 108rpx;
+  height: 108rpx;
+}
+
+.avatar-text {
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.profile-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  min-width: 0;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.phone {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.login-btn {
+  margin: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 26rpx;
+  border: none;
+  border-radius: 999rpx;
+  background: #fff;
+  color: #4facfe;
+  font-size: 24rpx;
+}
+
+.stats-card {
+  display: flex;
+  margin-top: 20rpx;
+  padding: 24rpx 0;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.stat-value {
+  color: #4facfe;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.pickup-card,
+.menu-card {
+  margin-top: 20rpx;
+  padding: 26rpx 24rpx;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: #1f2d3d;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.link-text {
+  color: #4facfe;
+  font-size: 24rpx;
+}
+
+.pickup-name {
+  display: block;
+  margin-top: 20rpx;
+  color: #1f2d3d;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.pickup-address,
+.leader-name {
+  display: block;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.menu-card {
+  padding: 0 24rpx;
+}
+
+.menu-item {
+  position: relative;
+  padding: 26rpx 34rpx 26rpx 0;
+  border-bottom: 2rpx solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.menu-item.last {
+  border-bottom: none;
+}
+
+.menu-title {
+  color: #1f2d3d;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.menu-desc {
+  color: #888;
+  font-size: 23rpx;
+}
+
+.menu-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  font-size: 32rpx;
+}

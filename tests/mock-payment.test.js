@@ -11,6 +11,14 @@ function clearModule(modulePath) {
   }
 }
 
+test('app config exposes my page in tab bar', () => {
+  const appJsonPath = path.join(__dirname, '..', 'app.json');
+  const config = JSON.parse(fs.readFileSync(appJsonPath, 'utf8'));
+
+  assert.ok(config.pages.includes('pages/my/my'));
+  assert.ok(config.tabBar.list.some((item) => item.pagePath === 'pages/my/my' && item.text === '我的'));
+});
+
 test('api.postMockPay sends backend payment request', async () => {
   const requests = [];
   const httpPath = require.resolve('../utils/http');

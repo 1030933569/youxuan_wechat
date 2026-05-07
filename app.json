@@ -7,6 +7,7 @@
     "pages/orderConfirm/orderConfirm",
     "pages/mockPay/mockPay",
     "pages/orderList/orderList",
+    "pages/my/my",
     "pages/pickupLocation/pickupLocation",
     "pages/applyLeader/applyLeader"
   ],
@@ -31,6 +32,12 @@
       {
         "pagePath": "pages/orderList/orderList",
         "text": "订单",
+        "iconPath": "static/images/tabbar/my.png",
+        "selectedIconPath": "static/images/tabbar/my-selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
         "iconPath": "static/images/tabbar/my.png",
         "selectedIconPath": "static/images/tabbar/my-selected.png"
       }
